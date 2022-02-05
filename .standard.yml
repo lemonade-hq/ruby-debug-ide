@@ -6,4 +6,4 @@ ruby_version: 1.9.3
 ignore:
   - '**/*':
     - Style/SafeNavigation # The & nil check is not available until Ruby 2.3.
-    - Lint/IncompatibleIoSelectWithFiberScheduler
+    - Lint/IncompatibleIoSelectWithFiberScheduler # Couldn't get this recommened fix to work in the interface.rb non_blocking_gets method.
