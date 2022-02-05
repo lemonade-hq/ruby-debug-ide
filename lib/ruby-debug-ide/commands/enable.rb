@@ -74,7 +74,7 @@ Do \"info display\" to see current list of code numbers."],
         if subcmd
           send("enable_#{subcmd.name}", args)
         else
-          send("enable_breakpoints", args.unshift(param))
+          send(:enable_breakpoints, args.unshift(param))
         end
       end
     end
@@ -150,7 +150,7 @@ Do \"info display\" to see current list of code numbers."],
         if subcmd
           send("disable_#{subcmd.name}", args)
         else
-          send("disable_breakpoints", args.unshift(param))
+          send(:disable_breakpoints, args.unshift(param))
         end
       end
     end
