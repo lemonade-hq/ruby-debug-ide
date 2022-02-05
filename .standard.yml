@@ -6,3 +6,4 @@ ruby_version: 1.9.3
 ignore:
   - '**/*':
     - Style/SafeNavigation # The & nil check is not available until Ruby 2.3.
+    - Lint/IncompatibleIoSelectWithFiberScheduler
