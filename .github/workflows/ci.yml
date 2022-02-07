@@ -88,6 +88,9 @@ jobs:
         with:
           versionSpec: '5.8.1'
 
+      - name: Manual GitVersion Config
+        run: dotnet-gitversion /showconfig
+
       - name: GitVersion Config
         uses: gittools/actions/gitversion/execute@v0.9.9
         with:
