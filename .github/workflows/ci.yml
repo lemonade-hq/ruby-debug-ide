@@ -108,7 +108,7 @@ jobs:
 
       - name: Update the Version
         run: |
-          sed -i 's/.*IDE_VERSION=.*/IDE_VERSION=${{ steps.gitversion.outputs.semver }}' lib/ruby-debug-ide/version.rb
+          sed -i 's/.*IDE_VERSION=.*/IDE_VERSION=${{ steps.gitversion.outputs.semver }}/' lib/ruby-debug-ide/version.rb
           cat lib/ruby-debug-ide/version.rb
 
       
