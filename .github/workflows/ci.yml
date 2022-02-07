@@ -76,7 +76,6 @@ jobs:
   package:
     name: Package the Gem
     runs-on: ubuntu-20.04
-    needs: build
 
     steps:
       - name: Install .NET Core 6
@@ -93,7 +92,6 @@ jobs:
         uses: gittools/actions/gitversion/execute@v0.9.9
         with:
           useConfigFile: true
-          configFilePath: 'GitVersion.yml' # https://github.com/GitTools/actions/issues/570
           additionalArguments: '/showConfig'
 
       - name: Determine Version
@@ -101,7 +99,6 @@ jobs:
         id: gitversion
         with:
           useConfigFile: true
-          configFilePath: 'GitVersion.yml' # https://github.com/GitTools/actions/issues/570
 
       - name: Update the Version
         run: |
