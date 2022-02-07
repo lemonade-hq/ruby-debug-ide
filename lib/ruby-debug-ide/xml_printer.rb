@@ -181,12 +181,12 @@ module Debugger
 
     def print_string(string)
       print_element("variables") do
-        if string.respond_to?('bytes')
+        if string.respond_to?(:bytes)
           bytes = string.bytes.to_a
           InspectCommand.reference_result(bytes)
           print_variable('bytes', bytes, 'instance')
         end
-        print_variable('encoding', string.encoding, 'instance') if string.respond_to?('encoding')
+        print_variable('encoding', string.encoding, 'instance') if string.respond_to?(:encoding)
       end
     end
 
@@ -279,7 +279,7 @@ module Debugger
           value_str = "Empty #{value.class}"
         end
       elsif value.is_a?(String)
-        has_children = value.respond_to?('bytes') || value.respond_to?('encoding')
+        has_children = value.respond_to?(:bytes) || value.respond_to?(:encoding)
         value_str = value
       else
         has_children = !value.instance_variables.empty? || !value.class.class_variables.empty?
@@ -290,7 +290,7 @@ module Debugger
         end
       end
 
-      if value_str.respond_to?('encode')
+      if value_str.respond_to?(:encode)
         # noinspection RubyEmptyRescueBlockInspection
         begin
           value_str = value_str.encode("UTF-8")
@@ -482,8 +482,8 @@ module Debugger
     end
 
     def handle_binary_data(value)
-      return '[Binary Data]' if (value.respond_to?('is_binary_data?') && value.is_binary_data?)
-      return '[Invalid encoding]' if (value.respond_to?('valid_encoding?') && !value.valid_encoding?)
+      return '[Binary Data]' if (value.respond_to?(:is_binary_data?) && value.is_binary_data?)
+      return '[Invalid encoding]' if (value.respond_to?(:valid_encoding?) && !value.valid_encoding?)
       value
     end
 
