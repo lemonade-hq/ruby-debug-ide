@@ -119,6 +119,6 @@ jobs:
         uses: actions/upload-artifact@2
         with:
           name: corigbytes-ruby-debug-ide-${{ steps.gitversion.outputs.semver }}.gem
-          name: corigbytes-ruby-debug-ide-${{ steps.gitversion.outputs.semver }}.gem
+          path: corigbytes-ruby-debug-ide-${{ steps.gitversion.outputs.semver }}.gem
           
       
