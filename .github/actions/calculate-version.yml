@@ -1,4 +1,4 @@
-name: 'Calculate Version Action'
+name: 'Calculate Version'
 description: 'Calculate the next version number using GitVersion.'
 
 outputs:
