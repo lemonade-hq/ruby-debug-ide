@@ -111,4 +111,14 @@ jobs:
           sed -i 's/.*IDE_VERSION=.*/IDE_VERSION=${{ steps.gitversion.outputs.semver }}/' lib/ruby-debug-ide/version.rb
           cat lib/ruby-debug-ide/version.rb
 
+      - name: Create Gem
+        run: |
+          gem build ruby-debug-ide.gemspec
+
+      - name: Upload GitHub Workflow Artifacts
+        users: actions/upload-artifact@2
+        with:
+          name: corigbytes-ruby-debug-ide-${{ steps.gitversion.outputs.semver }}.gem
+          name: corigbytes-ruby-debug-ide-${{ steps.gitversion.outputs.semver }}.gem
+          
       
