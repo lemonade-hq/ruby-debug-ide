@@ -116,7 +116,7 @@ jobs:
           gem build ruby-debug-ide.gemspec
 
       - name: Upload GitHub Workflow Artifacts
-        uses: actions/upload-artifact@2
+        uses: actions/upload-artifact@v2
         with:
           name: corigbytes-ruby-debug-ide-${{ steps.gitversion.outputs.semver }}.gem
           path: corigbytes-ruby-debug-ide-${{ steps.gitversion.outputs.semver }}.gem
