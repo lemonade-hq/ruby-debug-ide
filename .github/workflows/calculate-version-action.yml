@@ -1,0 +1,32 @@
+name: 'Calculate Version Action'
+description: 'Calculate the next version number using GitVersion.'
+
+outputs:
+  version_formats:
+    description: 'The various formats for the version.  See GitVersion for more details.'
+    value: ${{ steps.random-number-generator.outputs }}
+
+runs:
+  using: "composite"
+  steps:
+      - name: Install .NET Core 6
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.11
+        with:
+          versionSpec: '5.8.1'
+
+      - name: GitVersion Config
+        uses: gittools/actions/gitversion/execute@v0.9.11
+        with:
+          useConfigFile: true
+          additionalArguments: '/showConfig'
+
+      - name: Determine Version
+        uses: gittools/actions/gitversion/execute@v0.9.11
+        id: gitversion
+        with:
+          useConfigFile: true
