@@ -1,0 +1,50 @@
+name: Release Notes
+on:
+  push:
+    branches: [ master, release* ]
+  pull_request:
+    branches: [ master, release* ]
+
+defaults:
+  run: 
+    shell: bash
+
+jobs:
+  generate-release-notes:
+    name: Generate Release Notes
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required for Calculate Version step (e.g. GitVersion)
+
+      - name: Calculate Version
+        id: calculate_version
+        uses: ./.github/actions/calculate-version
+
+      - name: Install GitReleaseManager
+        uses: gittools/actions/gitreleasemanager/setup@v0.9.11
+        with:
+          versionSpec: '0.13.0'
+
+      - name: Create Release
+        uses: gittools/actions/gitreleasemanager/create@v0.9.11
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          owner: 'corgibytes'
+          repository: 'ruby-debug-ide'
+          milestone: 'v${{ steps.gitversion.outputs.majorMinorPatch }}'
+
+      - name: 'Generate Change Log'
+        run: |
+          dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'ruby-debug-ide' -f 'CHANGELOG.md'
+          git add --renormalize CHANGELOG.md
+          cat CHANGELOG.md
+
+      - name: 'Commit Change Log if it Changed'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Committing auto generated change log.
+          file_pattern: CHANGELOG.md

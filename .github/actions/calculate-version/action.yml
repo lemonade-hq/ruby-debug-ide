@@ -1,3 +1,13 @@
+# Calculates the next version number.  Assumes
+# that the code has already been checked out and that
+# the fetch-depth is zero:
+#
+#  uses: actions/checkout@v2
+#  with:
+#    fetch-depth: 0
+#
+# More details: https://gitversion.net/docs/reference/requirements
+
 name: 'Calculate Version'
 description: 'Calculate the next version number using GitVersion.'
 

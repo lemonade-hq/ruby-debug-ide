@@ -82,33 +82,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # Required for GitVersion
+          fetch-depth: 0 # Required for Calculate Version step (e.g. GitVersion)
 
       - name: Calculate Version
         id: calculate_version
         uses: ./.github/actions/calculate-version
-
-      # - name: Install .NET Core 6
-      #   uses: actions/setup-dotnet@v1
-      #   with:
-      #     dotnet-version: '6.0.x'
-
-      # - name: Install GitVersion
-      #   uses: gittools/actions/gitversion/setup@v0.9.11
-      #   with:
-      #     versionSpec: '5.8.1'
-
-      # - name: GitVersion Config
-      #   uses: gittools/actions/gitversion/execute@v0.9.11
-      #   with:
-      #     useConfigFile: true
-      #     additionalArguments: '/showConfig'
-
-      # - name: Determine Version
-      #   uses: gittools/actions/gitversion/execute@v0.9.11
-      #   id: gitversion
-      #   with:
-      #     useConfigFile: true
 
       - name: Update the Version
         run: |
