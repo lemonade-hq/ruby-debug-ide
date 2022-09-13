@@ -228,7 +228,8 @@ module Debugger
       3.times do |i|
         unless connected
           begin
-            s = TCPSocket.open(acceptor_host, acceptor_port)
+            print_debug "notify_dispatcher_if_needed"
+            s = TCPSocket.open('host.docker.internal', acceptor_port)
             dispatcher_answer = s.gets.chomp
 
             if dispatcher_answer == "true"
