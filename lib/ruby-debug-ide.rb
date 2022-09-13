@@ -27,7 +27,6 @@ module Debugger
 
       # Loop over each port until we find an open port.
       possible_port_numbers.each do |ppn|
-        # rubocop: disable Style/RedundantBegin
         begin
           print_debug("Checking if port is free: #{ppn}\n")
 
@@ -43,7 +42,6 @@ module Debugger
           # another port.
           print_debug("Port #{ppn} is in use.\n")
         end
-        # rubocop: enable Style/RedundantBegin
       end
 
       # Tried all the ports and couldn't find a free one.
@@ -164,7 +162,6 @@ module Debugger
       return if @control_thread
 
       @control_thread = DebugThread.new do
-        # rubocop: disable Style/RedundantBegin
         begin
           if socket_path.nil?
             # 127.0.0.1 seemingly works with all systems and with IPv6 as well.
@@ -213,7 +210,6 @@ module Debugger
           $stderr.printf "Fatal exception in DebugThread loop: #{$!.message}\nBacktrace:\n#{bt ? bt.join("\n  from: ") : "<none>"}\n"
           exit 2
         end
-        # rubocop: enable Style/RedundantBegin
       end
     end
 
