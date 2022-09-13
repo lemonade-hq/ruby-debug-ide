@@ -33,7 +33,7 @@ jobs:
       # Work around this by checking for success or no closed issue errors.
       - name: Create Release ${{ env.MajorMinorPatch }}
         run: |
-          dotnet gitreleasemanager create --owner trust-consulting-group --repository trust_v1 --token ${{ secrets.GITHUB_TOKEN }} --milestone v${{ env.GitVersion_MajorMinorPatch }} --logFilePath output.txt || true
+          dotnet gitreleasemanager create --owner corgibytes --repository ruby-debug-ide --token ${{ secrets.GITHUB_TOKEN }} --milestone v${{ env.GitVersion_MajorMinorPatch }} --logFilePath output.txt || true
           cat output.txt | grep 'No closed issues have been found for milestone\|Drafted release is available at'
 
       - name: 'Generate Change Log'
