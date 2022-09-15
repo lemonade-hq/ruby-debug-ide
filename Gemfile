@@ -37,6 +37,6 @@ group :development, :test do
   # versions of Standard might not support all the features
   # such as the to-do file.
   if RUBY_VERSION >= "2.2.0"
-    gem "standard"
+    gem "standard", git: "https://github.com/corgibytes/standard", ref: "8f06bf4ae25411e4e63d5d156dda1295c9b49405"
   end
 end
