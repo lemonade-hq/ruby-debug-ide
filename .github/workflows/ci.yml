@@ -95,7 +95,7 @@ jobs:
 
       - name: Create Gem
         run: |
-          gem build ruby-debug-ide.gemspec -o corigbytes-ruby-debug-ide-${{ steps.calculate_version.outputs.semver }}.gem
+          gem build ruby-debug-ide.gemspec -o ruby-debug-ide-${{ steps.calculate_version.outputs.semver }}.gem
 
       - name: Upload GitHub Workflow Artifacts
         uses: actions/upload-artifact@v2

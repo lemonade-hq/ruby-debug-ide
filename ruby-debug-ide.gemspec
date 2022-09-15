@@ -20,7 +20,7 @@ unless defined? FILES
 end
 
 Gem::Specification.new do |spec|
-  spec.name = "corgibytes-ruby-debug-ide"
+  spec.name = "ruby-debug-ide"
 
   spec.homepage = "https://github.com/corgibytes/ruby-debug-ide"
   spec.summary = "IDE interface for ruby-debug."
