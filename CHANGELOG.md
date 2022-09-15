@@ -1,13 +1,14 @@
 ## v0.7.100
 
 
-As part of this release we had [9 issues](https://github.com/corgibytes/ruby-debug-ide/milestone/1?closed=1) closed.
+As part of this release we had [10 issues](https://github.com/corgibytes/ruby-debug-ide/milestone/1?closed=1) closed.
 
 
 
 __DevOps__
 
 - [__#8__](https://github.com/corgibytes/ruby-debug-ide/pull/8) Create Gemfile package in CI
+- [__#10__](https://github.com/corgibytes/ruby-debug-ide/pull/10) Generate release notes
 
 __Enhancements__
 
