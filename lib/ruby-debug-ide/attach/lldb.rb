@@ -1,11 +1,6 @@
 require 'ruby-debug-ide/attach/native_debugger'
 
 class LLDB < NativeDebugger
-
-  def initialize(executable, pid, flags, gems_to_include, debugger_loader_path, argv)
-    super(executable, pid, flags, gems_to_include, debugger_loader_path, argv)
-  end
-
   def set_flags
 
   end

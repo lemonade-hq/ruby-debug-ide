@@ -1,0 +1,49 @@
+name: Release Notes
+on:
+  push:
+    branches: [ master, release* ]
+  pull_request:
+    branches: [ master, release* ]
+
+defaults:
+  run: 
+    shell: bash
+
+jobs:
+  generate-release-notes:
+    name: Generate Release Notes
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Required for Calculate Version step (e.g. GitVersion)
+
+      - name: Calculate Version
+        id: calculate_version
+        uses: ./.github/actions/calculate-version
+
+      - name: Install GitReleaseManager
+        uses: gittools/actions/gitreleasemanager/setup@v0.9.13
+        with:
+          versionSpec: '0.13.0'
+
+      # If there are no closed issues generating the Github Release will fail because it raises an exception.
+      # Work around this by checking for success or no closed issue errors.
+      - name: Create Release ${{ env.MajorMinorPatch }}
+        run: |
+          dotnet gitreleasemanager create --owner corgibytes --repository ruby-debug-ide --token ${{ secrets.GITHUB_TOKEN }} --milestone v${{ env.GitVersion_MajorMinorPatch }} --logFilePath output.txt || true
+          cat output.txt | grep 'No closed issues have been found for milestone\|Drafted release is available at'
+
+      - name: 'Generate Change Log'
+        run: |
+          dotnet-gitreleasemanager export --token ${{ secrets.GITHUB_TOKEN }} -o 'corgibytes' -r 'ruby-debug-ide' -f 'CHANGELOG.md'
+          git add --renormalize CHANGELOG.md
+          cat CHANGELOG.md
+
+      - name: 'Commit Change Log if it Changed'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Committing auto generated change log.
+          file_pattern: CHANGELOG.md

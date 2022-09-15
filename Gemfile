@@ -33,10 +33,8 @@ group :development, :test do
     gem "test-unit"
   end
 
-  # Minimum Ruby version for Standard.  That said the old
-  # versions of Standard might not support all the features
-  # such as the to-do file.
-  if RUBY_VERSION >= "2.2.0"
-    gem "standard"
+  # REM
+  if RUBY_VERSION >= "2.6"
+    gem "standard", git: "https://github.com/corgibytes/standard", ref: "64ddc304a5df706ede8bbbb3b0483cc67ee65a4a"
   end
 end

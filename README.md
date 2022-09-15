@@ -50,7 +50,7 @@ docker-compose build
 Then run the container:
 
 ```bash
-docker-compose run app bash
+docker-compose run --rm app bash
 ```
 
 Note: The gems are not installed until the container is run and the [docker-entrypoint.sh](docker-entrypoint.sh) is called.
