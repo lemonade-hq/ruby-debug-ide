@@ -1,7 +1,7 @@
 ## v0.7.100
 
 
-As part of this release we had [10 issues](https://github.com/corgibytes/ruby-debug-ide/milestone/1?closed=1) closed.
+As part of this release we had [11 issues](https://github.com/corgibytes/ruby-debug-ide/milestone/1?closed=1) closed.
 
 
 
@@ -20,4 +20,5 @@ __Enhancements__
 - [__#6__](https://github.com/corgibytes/ruby-debug-ide/pull/6) Add fixed port range
 - [__#7__](https://github.com/corgibytes/ruby-debug-ide/pull/7) Add Standard lint checker
 - [__#9__](https://github.com/corgibytes/ruby-debug-ide/pull/9) Fixed some new linting errors with new version of Rubocop
+- [__#11__](https://github.com/corgibytes/ruby-debug-ide/pull/11) Rename the gem back to default name
 
