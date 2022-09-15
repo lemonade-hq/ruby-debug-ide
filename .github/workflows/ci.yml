@@ -45,7 +45,7 @@ jobs:
 
           - ruby-version: 2.5.8
             bundler-version: 2.2.32
-            run-linter: true
+            run-linter: false
 
           - ruby-version: 2.6.6
             bundler-version: 2.2.32
