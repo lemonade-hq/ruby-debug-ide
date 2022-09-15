@@ -33,7 +33,10 @@ group :development, :test do
     gem "test-unit"
   end
 
-  # REM
+  # Only lint the latest version.  We can set Standard to lint against
+  # Ruby 1.9.3 using the Standard `ruby_version` feature.
+  #
+  # https://github.com/testdouble/standard#how-do-i-specify-a-ruby-version-what-is-supported
   if RUBY_VERSION >= "2.6"
     gem "standard", git: "https://github.com/corgibytes/standard", ref: "64ddc304a5df706ede8bbbb3b0483cc67ee65a4a"
   end
