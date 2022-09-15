@@ -35,6 +35,6 @@ group :development, :test do
 
   # REM
   if RUBY_VERSION >= "2.6"
-    gem "standard", git: "https://github.com/corgibytes/standard", ref: "28fd6199ec21a2a1b9db77f61e29febbd0e0977f"
+    gem "standard", git: "https://github.com/corgibytes/standard", ref: "7b5f0bf354ee88697e3f1d54ed1d231670625d4b"
   end
 end
