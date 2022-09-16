@@ -166,8 +166,7 @@ module Debugger
           if socket_path.nil?
             # 127.0.0.1 seemingly works with all systems and with IPv6 as well.
             # "localhost" and nil have problems on some systems.
-            # REM
-            # host ||= "127.0.0.1"
+            host ||= "127.0.0.1"
 
             server = notify_dispatcher_if_needed(host, port, notify_dispatcher) do |real_port, port_changed|
               s = TCPServer.new(host, real_port)
@@ -219,8 +218,7 @@ module Debugger
 
       return unless ENV["IDE_PROCESS_DISPATCHER"]
       acceptor_host, acceptor_port = ENV["IDE_PROCESS_DISPATCHER"].split(":")
-      # REM
-      # acceptor_host, acceptor_port = "127.0.0.1", acceptor_host unless acceptor_port
+      acceptor_host, acceptor_port = "127.0.0.1", acceptor_host unless acceptor_port
       connected = false
 
       3.times do |i|
