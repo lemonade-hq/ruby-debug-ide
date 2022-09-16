@@ -19,7 +19,7 @@ Depending on the used Ruby version you will need the following additional gems i
 
     ```ruby
     group :development, :test do
-      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100-rc1"
+      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100-rc.1"
       gem "debase"
     end
     ```
@@ -28,7 +28,7 @@ Depending on the used Ruby version you will need the following additional gems i
 
     ```ruby
     group :development, :test do
-      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100-rc1"
+      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100-rc.1"
       gem "ruby-debug-base19x"
     end
     ```
@@ -37,7 +37,7 @@ Depending on the used Ruby version you will need the following additional gems i
 
     ```ruby
     group :development, :test do
-      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100-rc1"
+      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100-rc.1"
       gem "ruby-debug-base"
     end
     ```
