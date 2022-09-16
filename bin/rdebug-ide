@@ -12,7 +12,7 @@ $stdout.sync=true
 
 options = OpenStruct.new(
     'frame_bind'  => false,
-    'host'        => "127.0.0.1",
+    'host'        => nil,
     'load_mode'   => false,
     'port'        => 1234,
     'stop'        => false,
