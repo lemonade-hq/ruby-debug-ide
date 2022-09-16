@@ -142,7 +142,7 @@ else
 end
 
 if options.dispatcher_port != -1
-  ENV['IDE_PROCESS_DISPATCHER'] = options.dispatcher_port.to_s
+  ENV['IDE_PROCESS_DISPATCHER'] ||= options.dispatcher_port.to_s
   if RUBY_VERSION < "1.9"
     lib_path = File.expand_path(File.dirname(__FILE__) + "/../lib/")
     $: << lib_path unless $:.include? lib_path

@@ -1,21 +1,13 @@
-require File.dirname(__FILE__) + '/lib/ruby-debug-ide/version'
+require File.dirname(__FILE__) + "/lib/ruby-debug-ide/version"
 require "date"
 
 # ------- Default Package ----------
 RUBY_DEBUG_IDE_VERSION = Debugger::IDE_VERSION unless defined? RUBY_DEBUG_IDE_VERSION
 
 unless defined? FILES
-  FILES = ['CHANGES',
-  'ChangeLog.md',
-  'ChangeLog.archive',
-  'MIT-LICENSE',
-  'Rakefile',
-  'ext/mkrf_conf.rb',
-  'Gemfile',
-  'ruby-debug-ide.gemspec'
-  ]
-  FILES.push(*Dir['bin/*'])
-  FILES.push(*Dir['lib/**/*'])
+  FILES = %w[CHANGES ChangeLog.md ChangeLog.archive MIT-LICENSE Rakefile ext/mkrf_conf.rb Gemfile ruby-debug-ide.gemspec]
+  FILES.push(*Dir["bin/*"])
+  FILES.push(*Dir["lib/**/*"])
   #  'test/**/*',
 end
 
@@ -26,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.summary = "IDE interface for ruby-debug."
   spec.description = <<-EOF
 An interface which glues ruby-debug to IDEs like Eclipse (RDT), NetBeans and RubyMine.  Forked to add support for Docker.
-EOF
+  EOF
 
   spec.version = RUBY_DEBUG_IDE_VERSION
 
@@ -36,10 +28,10 @@ EOF
   spec.platform = Gem::Platform::RUBY
   spec.require_path = "lib"
   spec.bindir = "bin"
-  spec.executables = ["rdebug-ide", "gdb_wrapper"]
+  spec.executables = %w[rdebug-ide gdb_wrapper]
   spec.files = FILES
 
-  spec.extensions << "ext/mkrf_conf.rb" unless ENV['NO_EXT']
+  spec.extensions << "ext/mkrf_conf.rb" unless ENV["NO_EXT"]
 
   if RUBY_VERSION < "2.0"
     spec.add_dependency("rake", "< 12.3")
@@ -54,5 +46,5 @@ EOF
     spec.add_dependency("rexml")
   end
 
-  spec.required_ruby_version = '>= 1.8.2'
+  spec.required_ruby_version = ">= 1.8.2"
 end
