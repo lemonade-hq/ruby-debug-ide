@@ -14,7 +14,7 @@ end
 Gem::Specification.new do |spec|
   spec.name = "ruby-debug-ide"
 
-  spec.homepage = "https://github.com/corgibytes/ruby-debug-ide"
+  spec.homepage = "https://github.com/lemonade-hq/ruby-debug-ide"
   spec.summary = "IDE interface for ruby-debug."
   spec.description = <<-EOF
 An interface which glues ruby-debug to IDEs like Eclipse (RDT), NetBeans and RubyMine.  Forked to add support for Docker.
@@ -22,8 +22,7 @@ An interface which glues ruby-debug to IDEs like Eclipse (RDT), NetBeans and Rub
 
   spec.version = RUBY_DEBUG_IDE_VERSION
 
-  spec.authors = ["Markus Barchfeld", "Martin Krauskopf", "Mark Moseley", "Alexandr Evstigneev", "Corgibytes"]
-  spec.email = "info@corgibytes.com"
+  spec.authors = ["Markus Barchfeld", "Martin Krauskopf", "Mark Moseley", "Alexandr Evstigneev", "Corgibytes", "lemonade-hq"]
   spec.license = "MIT"
   spec.platform = Gem::Platform::RUBY
   spec.require_path = "lib"

@@ -1,8 +1,8 @@
-[![CI](https://github.com/corgibytes/ruby-debug-ide/actions/workflows/ci.yml/badge.svg)](https://github.com/corgibytes/ruby-debug-ide/actions/workflows/ci.yml)
-[![Release Notes](https://github.com/corgibytes/ruby-debug-ide/actions/workflows/release-notes.yml/badge.svg)](https://github.com/corgibytes/ruby-debug-ide/actions/workflows/release-notes.yml)
-[![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
+# ruby-debug-ide (Lemonade fork)
 
-# ruby-debug-ide
+> This repo is forked from [ruby-debug-ide](https://github.com/lemonade-hq/ruby-debug-ide)
+> 
+> This fork allows us to specify the ports to use for the debugger, so we can expose them via okteto.yml
 
 The ruby-debug-ide gem provides the protocol to establish communication between the debugger engine (such as [debase](https://rubygems.org/gems/debase) or [ruby-debug-base](https://rubygems.org/gems/ruby-debug-base)) and IDEs (for example, [RubyMine](https://www.jetbrains.com/ruby/), [Visual Studio Code](https://code.visualstudio.com/), or [Eclipse](https://www.eclipse.org/ide/)). ruby-debug-ide redirects commands from the IDE to the debugger engine. Then, it returns answers/events received from the debugger engine to the IDE. To learn more about a communication protocol, see the following document: [ruby-debug-ide protocol](protocol-spec.md).
 
@@ -19,7 +19,7 @@ Depending on the used Ruby version you will need the following additional gems i
 
     ```ruby
     group :development, :test do
-      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100.rc1"
+      gem "ruby-debug-ide", git: "https://github.com/lemonade-hq/ruby-debug-ide", tag: "v0.7.100.rc1"
       gem "debase"
     end
     ```
@@ -28,7 +28,7 @@ Depending on the used Ruby version you will need the following additional gems i
 
     ```ruby
     group :development, :test do
-      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100.rc1"
+      gem "ruby-debug-ide", git: "https://github.com/lemonade-hq/ruby-debug-ide", tag: "v0.7.100.rc1"
       gem "ruby-debug-base19x"
     end
     ```
@@ -37,7 +37,7 @@ Depending on the used Ruby version you will need the following additional gems i
 
     ```ruby
     group :development, :test do
-      gem "ruby-debug-ide", git: "https://github.com/corgibytes/ruby-debug-ide", tag: "v0.7.100.rc1"
+      gem "ruby-debug-ide", git: "https://github.com/lemonade-hq/ruby-debug-ide", tag: "v0.7.100.rc1"
       gem "ruby-debug-base"
     end
     ```
@@ -46,7 +46,7 @@ For Windows, make sure that the Ruby [DevKit](https://github.com/oneclick/rubyin
   
 ## Using the debugger
 
-There are several different ways to use the ruby-debug-ide gem depending on the IDE you are using and if you are running your application in a container.  Below are some of the setups that we have used succssefully.  If your setup is not mentioned please let us know by opening a [issue](https://github.com/corgibytes/ruby-debug-ide/issues) or [pull request](https://github.com/corgibytes/ruby-debug-ide/pulls).
+There are several different ways to use the ruby-debug-ide gem depending on the IDE you are using and if you are running your application in a container.  Below are some of the setups that we have used succssefully.  If your setup is not mentioned please let us know by opening a [issue](https://github.com/lemonade-hq/ruby-debug-ide/issues) or [pull request](https://github.com/lemonade-hq/ruby-debug-ide/pulls).
 
 No matter your setup need to make sure the following ports are open:
 
@@ -122,7 +122,7 @@ end
 
 ## Contributing
 
-If you have any questions, notice a bug, or have a suggestion/enhancement please let me know by opening [issue](https://github.com/corgibytes/ruby-debug-ide/issues) or [pull request](https://github.com/corgibytes/ruby-debug-ide/pulls).
+If you have any questions, notice a bug, or have a suggestion/enhancement please let me know by opening [issue](https://github.com/lemonade-hq/ruby-debug-ide/issues) or [pull request](https://github.com/lemonade-hq/ruby-debug-ide/pulls).
 
 ### Development Environment Setup
 

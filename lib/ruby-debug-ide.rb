@@ -18,12 +18,14 @@ module Debugger
   class << self
     ##
     # Finds a free port to use.  The port range is limited to
-    # a known range of 58430 to 58450 so Docker/firewall
+    # a range set by environment variable so Docker/firewall
     # ports can be opened.  Useful when debugging a Rails
     # application that uses multiple process like Unicorn.
     def find_free_port(host)
+      ports_from_env = ENV['RUBY_DEBUG_PORT_RANGE']
+      ports_from_env_array = ports_from_env.split(',').map(&:to_i)
       # All the possible ports randomly sorted.
-      possible_port_numbers = (58430..58450).to_a.shuffle
+      possible_port_numbers = ports_from_env_array.shuffle
 
       # Loop over each port until we find an open port.
       possible_port_numbers.each do |ppn|
