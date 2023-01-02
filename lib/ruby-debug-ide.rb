@@ -22,7 +22,7 @@ module Debugger
     # ports can be opened.  Useful when debugging a Rails
     # application that uses multiple process like Unicorn.
     def find_free_port(host)
-      ports_from_env = ENV['RUBY_DEBUG_PORT_RANGE']
+      ports_from_env = ENV['RUBY_DEBUG_PORTS']
       ports_from_env_array = ports_from_env.split(',').map(&:to_i)
       # All the possible ports randomly sorted.
       possible_port_numbers = ports_from_env_array.shuffle
