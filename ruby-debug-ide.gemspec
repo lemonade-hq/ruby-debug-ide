@@ -30,8 +30,6 @@ An interface which glues ruby-debug to IDEs like Eclipse (RDT), NetBeans and Rub
   spec.executables = %w[rdebug-ide gdb_wrapper]
   spec.files = FILES
 
-  spec.extensions << "ext/mkrf_conf.rb" unless ENV["NO_EXT"]
-
   if RUBY_VERSION < "2.0"
     spec.add_dependency("rake", "< 12.3")
   elsif RUBY_VERSION < "2.1"
